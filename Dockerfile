@@ -10,6 +10,15 @@ WORKDIR $HOME
 
 RUN apt update && apt install mupdf -y
 
+COPY ./custom_startup.sh $STARTUPDIR/custom_startup.sh
+RUN chmod +x $STARTUPDIR/custom_startup.sh
+RUN chmod 755 $STARTUPDIR/custom_startup.sh
+
+# Update the desktop environment to be optimized for a single application
+RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
+RUN cp /usr/share/extra/backgrounds/bg_kasm.png /usr/share/extra/backgrounds/bg_default.png
+RUN apt-get remove -y xfce4-panel
+
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME

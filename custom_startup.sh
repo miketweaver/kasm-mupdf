@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -ex
-START_COMMAND="mupdf /document.pdf"
+START_COMMAND="mupdf /mnt/document.pdf"
 PGREP="mupdf"
 export MAXIMIZE="true"
 export MAXIMIZE_NAME="mupdf"

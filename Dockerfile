@@ -19,6 +19,8 @@ RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME
 RUN cp /usr/share/extra/backgrounds/bg_kasm.png /usr/share/extra/backgrounds/bg_default.png
 RUN apt-get remove -y xfce4-panel
 
+RUN snap install evince
+
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME
